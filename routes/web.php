@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('page/form');
 });
-
+Route::post("/send-mail", [MailController::class, "sendmail"])->name("sendMail");
 Route::resource('/role', RoleController::class);
 
 Route::get('/dashboard', function () {
